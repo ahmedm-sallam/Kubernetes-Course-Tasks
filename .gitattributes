@@ -1,0 +1,5 @@
+# Files that run or are read inside Linux containers must keep LF line endings,
+# even when core.autocrlf=true on Windows (CRLF breaks the MySQL init script).
+*.sh  text eol=lf
+*.sql text eol=lf
+*.cnf text eol=lf
