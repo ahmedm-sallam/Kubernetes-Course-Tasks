@@ -15,4 +15,6 @@ COPY conf/mysql.cnf /etc/mysql/conf.d/mysql.cnf
 COPY schema/schema.sql /opt/webapp/schema.sql
 
 # Runs once, on the first start with an empty data directory
-COPY initdb/01-setup.sh /docker-entrypoint-initdb.d/01-setup.sh
+# --chmod=644: the entrypoint only SOURCES non-executable .sh files (needed for docker_process_sql).
+# Docker on Windows copies files as 755, which would make it run the script instead.
+COPY --chmod=644 initdb/01-setup.sh /docker-entrypoint-initdb.d/01-setup.sh
