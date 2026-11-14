@@ -68,6 +68,7 @@ The app (`webapp/`) and the MySQL image (`mysql/`) are provided. You build them,
 
 ```bash
 minikube start                 # start the Task 1 cluster if it is stopped
+chmod -x mysql/initdb/01-setup.sh
 docker build -t webapp-api:task2 ./webapp
 docker build -t webapp-mysql:task2 ./mysql
 minikube image load webapp-api:task2
