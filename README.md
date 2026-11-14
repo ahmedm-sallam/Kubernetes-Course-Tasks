@@ -4,7 +4,7 @@
 
 <h1 align="center">Kubernetes Course Tasks</h1>
 
-This repo is my practice for my Kubernetes learning journey. I'm following the MLOps MENA Community Kubernetes course, and every task I finish goes here: the YAML files, what I ran, screenshots, and the problems I hit along the way.
+This repo is my practice for my Kubernetes learning journey. I'm following the Kubernetes course from the [MLOps MENA Community](https://github.com/MLOpsMENACommunity), and every task I finish goes here: the YAML files, what I ran, screenshots, and the problems I hit along the way.
 
 Everything runs on a local 3-node minikube cluster on my Windows machine.
 
