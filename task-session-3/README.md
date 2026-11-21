@@ -1,4 +1,4 @@
-# 🗄️ Task Session 3: MySQL Read Replicas, RBAC, NetworkPolicy & Helm
+# 🗄️ Task Session 3 & 4: MySQL Read Replicas, RBAC, NetworkPolicy & Helm
 
 ## 📝 Description
 
