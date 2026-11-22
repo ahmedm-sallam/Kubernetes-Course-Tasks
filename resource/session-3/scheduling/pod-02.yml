@@ -1,0 +1,24 @@
+# kubectl taint nodes minikube-m03 workload=gpu:NoSchedule
+# kubectl taint nodes minikube-m03 workload=gpu:NoSchedule-
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gpu
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tainer
+  namespace: gpu
+spec:
+  containers:
+    - name: tainer
+      image: busybox
+      command: ["sh", "-c", "echo Hello Kubernetes! && sleep 3600"]
+
+  tolerations:
+    - key: "workload"
+      operator: "Exists"
+      effect: "NoSchedule"
+
+# kubectl get pods -n gpu -o wide

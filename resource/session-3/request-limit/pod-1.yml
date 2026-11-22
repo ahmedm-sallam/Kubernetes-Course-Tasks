@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: limit-request
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-pod
+  namespace: limit-request
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "128Mi"
+        limits:
+          cpu: "500m"
+          memory: "128Mi"
+
+# kubectl get pods -n limit-request -o wide
+# kubectl top pod resource-pod -n limit-request
+# kubectl top nodes
+# kubectl get pod resource-pod -n limit-request -o jsonpath='{.status.qosClass}'
+# kubectl delete pod resource-pod -n limit-request

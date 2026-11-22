@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: quota
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: team-quota
+  namespace: quota
+spec:
+  hard:
+    requests.cpu: "500m"
+    requests.memory: "1Gi"
+    pods: "30"
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: defaults
+  namespace: quota
+spec:
+  limits:
+    - type: Container
+      defaultRequest:
+        cpu: 500m
+        memory: 512Mi
+      default:
+        cpu: 500m
+        memory: 512Mi
